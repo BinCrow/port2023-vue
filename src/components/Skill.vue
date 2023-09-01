@@ -10,7 +10,7 @@ import {skillText} from "../constants"
       </h2>
       <div class="skill__desc">
         <div v-for="(skill, key) in skillText" :key=key>
-          <span>{{ key+1 }}</span>
+          <span>{{ key+1 }}.</span>
           <h3>{{ skill.title }}</h3>
           <p>{{ skill.desc }}</p>
         </div>

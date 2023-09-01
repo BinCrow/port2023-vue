@@ -15,8 +15,8 @@ import Footer from "@/components/Footer.vue";
   <main id="main" role="main">
     <Intor />
     <Skill />
-    <Port />
     <Site />
+    <Port />
     <Contact />
   </main>
   <Footer />
