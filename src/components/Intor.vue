@@ -40,7 +40,7 @@ import {introText} from "../constants"
   </section>
 </template>
 
-<style>
+<style lang="scss">
   #intro {
   height: 100vh;
 }
