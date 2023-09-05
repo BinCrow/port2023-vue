@@ -6,10 +6,10 @@ import {portText} from "../constants"
   <section id="port">
     <div class="port__inner">
       <h2 class="port__title">
-        portfolio <em>나의 작업물</em>
+        portfolio <em>포폴 작업물</em>
       </h2>
       <div class="port__wrap">
-        <article class="port__item p1" v-for="(port, key) in portText" :key=key>
+        <article class="port__item" v-for="(port, key) in portText" :key=key>
           <span class="num">{{ port.num }}.</span>
           <a :href="port.code" target="_blank" class="img">
             <img :src="port.img" :alt="port.name" />
@@ -22,6 +22,38 @@ import {portText} from "../constants"
     </div>
   </section>
 </template>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  export default {
+    mounted: function(){
+      this.ScrollAnimation();
+    },
+    methods: {
+      ScrollAnimation(){
+        const horSection = gsap.utils.toArray(".port__item");
+
+        gsap.to(horSection, {
+          xPercent: -120 * (horSection.length -1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#port",
+            start: "top 100px",
+            end: "+=3000",
+            pin: true,
+            scrub: 1,
+            markers: false,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+          },
+        });
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
 #port {
@@ -78,34 +110,34 @@ import {portText} from "../constants"
         height: auto;
       }
 
-      &.p1 {
+      &:nth-child(1) {
         background-color: var(--subBg100);
       }
-      &.p2 {
+      &:nth-child(2) {
         background-color: var(--subBg200);
       }
-      &.p3 {
+      &:nth-child(3) {
         background-color: var(--subBg300);
       }
-      &.p4 {
+      &:nth-child(4) {
         background-color: var(--subBg400);
       }
-      &.p5 {
+      &:nth-child(5) {
         background-color: var(--subBg500);
       }
-      &.p6 {
+      &:nth-child(6) {
         background-color: var(--subBg500);
       }
-      &.p7 {
+      &:nth-child(7) {
         background-color: var(--subBg400);
       }
-      &.p8 {
+      &:nth-child(8) {
         background-color: var(--subBg300);
       }
-      &.p9 {
+      &:nth-child(9) {
         background-color: var(--subBg200);
       }
-      &.p10 {
+      &:nth-child(10) {
         background-color: var(--subBg100);
       }
       .num {
